@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #6464d0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 20rem;
+    height: 25rem;
+    position: relative;
+    cursor: pointer;
+}
+.card{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(./background.avif);
+    background-size: cover;
+    transition: 1s;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px;
+}
+
+.container:hover .card{
+    transform: perspective(20px) rotatex(2deg) translateY(-50px);
+}
+
+.bird{
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 1s;
+    animation: animate 0.2s infinite;
+animation-play-state: paused !important;
+}
+
+.container:hover .bird{
+    animation-play-state: running !important;
+    transform: translateY(-200px) translateX(-10px);
+}
+
+@keyframes animate{
+    0%{
+        background-image: url(./bird1.png);
+    }
+    50%{
+        background-image: url(./bird2.png);
+    }
+    100%{
+        background-image: url(./bird1.png);
+    }
+}
